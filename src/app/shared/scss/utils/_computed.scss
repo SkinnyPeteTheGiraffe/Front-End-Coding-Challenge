@@ -1,0 +1,68 @@
+/**
+  A stylesheet contains rules for computed sizes for both margins and padding.
+  Mimicking the Bootstrap style design, each class has 6 states, ranging from 0px to 15px denoted by:
+  {margin/paddding}-{t, r, b, l}-{1-5}
+  OR
+  {margin/paddding}-{1-5}
+  Example:
+  .mt-0 (Margin Top: 0px)
+  .p-2 (Padding All Sides: 6px)
+  .pl-5 (Padding Left: 15px)
+
+  @author: Bobby Plunkett
+  @date: 04/29/2019
+ */
+
+// Max gutter size for margin and padding
+$gutter-size: 15px;
+// Margin and Padding style rules, mimics Bootstrap's styling classes
+@for $i from 0 through 5 {
+  // Top
+  .mt-#{$i} {
+    margin-top: ($i / 5) * $gutter-size !important;
+  }
+  .pt-#{$i} {
+    padding-top: ($i / 5) * $gutter-size !important;
+  }
+  // Left
+  .ml-#{$i} {
+    margin-left: ($i / 5) * $gutter-size !important;
+  }
+  .pl-#{$i} {
+    padding-left: ($i / 5) * $gutter-size !important;
+  }
+  // Right
+  .mr-#{$i} {
+    padding-right: ($i / 5) * $gutter-size !important;
+  }
+  .pr-#{$i} {
+    padding-right: ($i / 5) * $gutter-size !important;
+  }
+  // Bottom
+  .mb-#{$i} {
+    margin-bottom: ($i / 5) * $gutter-size !important;
+  }
+  .pb-#{$i} {
+    padding-bottom: ($i / 5) * $gutter-size !important;
+  }
+  // Axis
+  .my-#{$i} {
+    margin: ($i / 5) * $gutter-size  0 !important;
+  }
+  .py-#{$i} {
+    padding: ($i / 5) * $gutter-size  0 !important;
+  }
+  .mx-#{$i} {
+    margin: 0 ($i / 5) * $gutter-size !important;
+  }
+  .px-#{$i} {
+    padding: 0 ($i / 5) * $gutter-size !important;
+  }
+  // All
+  .m-#{$i} {
+    margin: ($i / 5) * $gutter-size !important;
+  }
+  .p-#{$i} {
+    padding: ($i / 5) * $gutter-size !important;
+  }
+}

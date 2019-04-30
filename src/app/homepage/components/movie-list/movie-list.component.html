@@ -1,0 +1,7 @@
+<div class="row end-md btn-group">
+  <a *ngFor="let decade of decades.sort()" [ngClass]="{'active-filter-button' : isActiveDecade(decade.year)}" class="filter-button" (click)="onFilterClick($event, decade)">{{decade.year + '\'s'}}</a>
+  <div class="col-md-1 col-md-offset-2"></div>
+</div>
+<div class="movie-list">
+  <app-movie-info *ngFor="let movie of movies | filter: decades" [movie]="movie" class="movie-card row mx-0 center-md"></app-movie-info>
+</div>

@@ -1,0 +1,24 @@
+<div class="movie-info-container">
+  <div class="row center-md mx-0">
+    <div class="col-xs-12 col-md-4">
+      <img class="movie-poster" src="../../../../assets/img/{{movie.imdbID}}.jpg" alt="{{movie.Title + ' Poster'}}">
+    </div>
+    <div class="col-sm-12 col-md-8">
+      <div class="movie-info">
+        <h1 class="my-0 py-0 movie-title text-left">{{movie.Title}}</h1>
+        <hr class="movie-info-separator">
+        <div class="movie-info-desc">
+          <div class="row ml-1 mr-1 details-row">
+            <div class="detail-info"><p class="movie-rating-text mt-0">{{movie.Rated}}</p></div>
+            <p class="detail-info col-md text-bold mt-2 text-left">{{movie.Runtime}}</p>
+            <p class="detail-info col-md-offset col-md mr-1 mt-2">{{movie.Released}}</p>
+          </div>
+        </div>
+        <p class="movie-info-plot p-5">{{movie.Plot}}</p>
+        <div class="imdb-container">
+          <a href="{{getImdbUrlForMovie()}}" class="movie-info-btn mx-2">View on IMDB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

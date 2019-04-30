@@ -1,0 +1,43 @@
+.filter-button {
+   background-color: #F6F6F5;
+   color: #2d2d2d;
+   border: 1px solid #b0b0b0;
+   padding: 15px;
+   cursor:pointer;
+ }
+
+.filter-button:hover {
+  background-color: #6186f6 !important;
+  color: #bebebe;
+}
+
+.filter-button:nth-of-type(1){
+  border-radius: 5px 0 0 5px;
+}
+
+.filter-button:nth-last-of-type(1){
+  border-radius: 0 5px 5px 0;
+}
+
+.btn-group {
+  margin: 15px 0 15px 70px;
+}
+
+.active-filter-button {
+  background-color: #487ef6;
+  color: #F6F6F5;
+  font-weight: bold;
+}
+
+.active-filter-button:hover {
+  background-color: #a2b5f6 !important;
+  color: #2d2d2d;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .btn-group {
+    margin: 25px 0 15px 30px;
+  }
+
+}
