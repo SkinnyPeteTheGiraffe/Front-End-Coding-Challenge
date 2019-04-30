@@ -1,3 +1,4 @@
+// A data structure for movies contained within the JSON payload for IMDB API
 export interface Movie {
   Title: string;
   Year: number;

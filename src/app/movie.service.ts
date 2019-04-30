@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {OmdbResult} from './omdb-result';
@@ -14,6 +14,9 @@ export class MovieService {
   constructor(
     private http: HttpClient) { }
 
+  /**
+   * Query for all movies at the API endpoint provided (IMDB).
+   */
   queryMovies(): Observable<OmdbResult> {
     return this.http.get<OmdbResult>(`${this.omdbApiBaseUrl}/?s=${this.movieTitle}&apikey=${this.omdbApiKey}`)
       .pipe(
@@ -21,7 +24,9 @@ export class MovieService {
         catchError(this.handleError<OmdbResult>('queryMovies', {Search: [], Response: '', totalResults: 0}))
       );
   }
-
+  /**
+   * Query retrieved movies for a single matching item, evaluated against the items id.
+   */
   queryMovieById<Data>(id: string): Observable<Movie> {
     const url = `${this.omdbApiBaseUrl}/?i=${id}&apikey=${this.omdbApiKey}`;
     return this.http.get<Movie>(url)
@@ -34,6 +39,11 @@ export class MovieService {
       );
   }
 
+  /**
+   * Centralized area for errors handling within this service.
+   * @param operation - name of the operation currently being handled
+   * @param result - the result of the operation
+   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -44,7 +54,7 @@ export class MovieService {
 
   /**
    * Broadcast given message to console (Can be extended later for more functionality).
-   * @param message - the message to be broadcasted
+   * @param message - the message to be broadcast
    */
   private log(message: string) {
     console.log(`MovieService: ${message}`);

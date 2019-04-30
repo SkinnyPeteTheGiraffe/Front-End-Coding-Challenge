@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Movie} from '../../../movie';
 import {OmdbResult} from '../../../omdb-result';
 import {MovieService} from '../../../movie.service';
@@ -55,6 +55,10 @@ export class MovieListComponent implements OnInit {
       });
   }
 
+  /**
+   * Determines if a given decade is present in our array, and that it is active.
+   * @param decade for which to check activity for
+   */
   isActiveDecade(decade): boolean {
     const decadeInstances = this.decades.filter((x) => x.year === decade);
     if (decadeInstances) {
@@ -64,6 +68,11 @@ export class MovieListComponent implements OnInit {
     return false;
   }
 
+  /**
+   * Gets called on click of the decade filter buttons, and toggles the state of active.
+   * @param $event the event reference for the given input
+   * @param decade the decade object associated with the input event
+   */
   onFilterClick($event, decade: any) {
     decade.active = !decade.active;
   }
