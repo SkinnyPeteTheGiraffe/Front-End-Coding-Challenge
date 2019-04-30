@@ -7,7 +7,7 @@ import {Movie} from './movie';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
-  private omdbApiBaseUrl = 'http://www.omdbapi.com';
+  private omdbApiBaseUrl = 'https://www.omdbapi.com';
   private omdbApiKey = 'ac52f7a0';
   private movieTitle = 'Batman';
 
